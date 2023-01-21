@@ -42,5 +42,10 @@ public class MyBatisChannelRepository implements ChannelRepository {
         
         return channelMapper.delete(id);
     }
+
+    @Override
+    public Optional<Channel> findById(Integer id) {
+        return channelMapper.findById(id);
+    }
     
 }

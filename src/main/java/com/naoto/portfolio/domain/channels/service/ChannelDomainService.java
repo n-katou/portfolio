@@ -1,6 +1,7 @@
 package com.naoto.portfolio.domain.channels.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -36,5 +37,9 @@ public class ChannelDomainService {
 
     public void delete(int id){
         channelRepository.delete(id);
-      }
+    }
+
+    public Optional<Channel> findById(Integer id) {
+        return channelRepository.findById(id);
+    }
 }

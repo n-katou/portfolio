@@ -6,7 +6,7 @@
   <title>channels</title>
 </head>
 <body>
-  <div class="create-todo">
+  <div class="create">
     <form method="post" th:action="@{/create}" th:object="${channel}">
       <p th:errors="*{name}" class="todo-error-message"></p>
       <input type="text" th:field="*{name}">
@@ -16,6 +16,7 @@
   <h2>リスト</h2>
   <div th:each="channel : ${channels}">
     <p th:text="${channel.name}"></p>
+    <p><a th:href="@{/edit/{id}(id=${channel.id})}">編集</a></p>
   </div>
 </body>
 </html>

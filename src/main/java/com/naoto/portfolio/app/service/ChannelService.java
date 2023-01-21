@@ -1,6 +1,7 @@
 package com.naoto.portfolio.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,5 +34,9 @@ public class ChannelService {
 
     public void delete(int id){
         channelDomainService.delete(id);
+    }
+
+    public Optional<Channel> findById(Integer id) {
+        return channelDomainService.findById(id);
     }
 }
