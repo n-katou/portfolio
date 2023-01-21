@@ -66,9 +66,10 @@ public class channelController {
         return "redirect:/channels";
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int id){
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") int id){
         channelService.delete(id);
+        return "redirect:/channels";
     }
     
 }
