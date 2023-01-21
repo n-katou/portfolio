@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
+  <title>channels</title>
+</head>
+<body>
+  <div class="create-todo">
+    <form method="post" th:action="@{/create}" th:object="${channel}">
+      <p th:errors="*{name}" class="todo-error-message"></p>
+      <input type="text" th:field="*{name}">
+      <button type="submit">登録</button>
+    </form>
+  </div>
+  <h2>リスト</h2>
+  <div th:each="channel : ${channels}">
+    <p th:text="${channel.name}"></p>
+  </div>
+</body>
+</html>
