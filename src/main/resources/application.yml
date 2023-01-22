@@ -6,7 +6,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/chat
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/todo_db
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASS:19940119Nk}
     

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>TodoApp</title>
+</head>
+<body>
+  <h1>TodoList</h1>
+  <div th:each="todo : ${todos}" >
+    <p th:text="${todo.title}"></p>
+  </div>
+
+  <form method="post" th:action="@{/add}">
+    <input type="text" name="title" />
+    <input type="date" name="time_limit"/>
+    <input type="submit" value="追加" />
+  </form>
+</body>
+</html>
