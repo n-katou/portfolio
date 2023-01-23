@@ -30,4 +30,5 @@ public class MyBatisMessageRepository implements MessageRepository {
         return messageMapper.find(channelId, searchWord);
     }
     
+    
 }
