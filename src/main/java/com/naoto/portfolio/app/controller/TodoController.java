@@ -5,46 +5,48 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.naoto.portfolio.app.service.TodoService;
 import com.naoto.portfolio.domain.todos.model.Todo;
-import com.naoto.portfolio.infrastructure.todos.TodoMapper;
+
 
 
 
 @Controller
-
-
 public class TodoController {
 
     @Autowired
-    TodoMapper todoMapper;
+    private TodoService todoService;
 
-    @RequestMapping(value = "/todos")
+    @GetMapping("/todos")
     public String index(Model model) {
-        // List<Todo> list = todoMapper.selectAll();
-        List<Todo> list = todoMapper.selectIncomplete();
-        List<Todo> doneList = todoMapper.selectComplete();
+        List<Todo> list = todoService.selectIncomplete();
+        List<Todo> doneList = todoService.selectComplete();
         model.addAttribute("todos", list);
         model.addAttribute("doneTodos",doneList);
         return "todos/index";
     }
 
-    @RequestMapping(value= "/add")
-    public String add(Todo todo) {
-        todoMapper.add(todo);
+   
+
+    @PostMapping("/add")
+    public String add(@ModelAttribute Todo todo) {
+        todoService.add(todo);;
         return "redirect:/todos" ;
     }
 
-    @RequestMapping(value="/update")
-    public String update(Todo todo) {
-        todoMapper.update(todo);
+    @PostMapping("/update")
+    public String update(@ModelAttribute Todo todo) {
+        todoService.update(todo);
         return "redirect:/todos";
     }
 
-    @RequestMapping(value="/delete")
+    @PostMapping("/delete")
     public String delete() {
-        todoMapper.delete();
+        todoService.delete();
         return "redirect:/todos";
     }
 }

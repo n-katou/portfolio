@@ -8,10 +8,10 @@ import com.naoto.portfolio.domain.todos.model.Todo;
 
 @Mapper
 public interface TodoMapper {
-    public List<Todo> selectAll();
-    public List<Todo> selectIncomplete();
-    public List<Todo> selectComplete();
-    public void add(Todo todo);
-    public void update(Todo todo);
-    public void delete();
+    List<Todo> selectAll();
+    List<Todo> selectIncomplete();
+    List<Todo> selectComplete();
+    void add(Todo todo);
+    void update(Todo todo);
+    void delete();
 }
